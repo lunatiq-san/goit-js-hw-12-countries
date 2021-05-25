@@ -5,3 +5,6 @@ function fetchCountries(searchQuery) {
 }
 
 export default { fetchCountries };
+
+// Просто используй trim() он обрезает пробелы, и потом делаешь проверку
+// if (query.trim() !== '') {тогда отправляешь запрос}

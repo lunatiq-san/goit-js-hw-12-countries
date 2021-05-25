@@ -13,7 +13,9 @@ refs.input.addEventListener('input', debounce(onInputChange, 500));
 function onInputChange(event) {
   const searchQuery = event.target.value;
 
-  API.fetchCountries(searchQuery).then(renderCountryMarkup).catch(onFetchError);
+  if (searchQuery.trim() !== '') {
+    API.fetchCountries(searchQuery).then(renderCountryMarkup).catch(onFetchError);
+  }
 }
 
 function renderCountryMarkup(countries) {

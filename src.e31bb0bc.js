@@ -2762,7 +2762,9 @@ function fetchCountries(searchQuery) {
 
 var _default = {
   fetchCountries: fetchCountries
-};
+}; // Просто используй trim() он обрезает пробелы, и потом делаешь проверку
+// if (query.trim() !== '') {тогда отправляешь запрос}
+
 exports.default = _default;
 },{}],"js/get-refs.js":[function(require,module,exports) {
 "use strict";
@@ -2803,7 +2805,9 @@ refs.input.addEventListener('input', (0, _lodash.default)(onInputChange, 500));
 function onInputChange(event) {
   var searchQuery = event.target.value;
 
-  _fetchCountries.default.fetchCountries(searchQuery).then(renderCountryMarkup).catch(onFetchError);
+  if (searchQuery.trim() !== '') {
+    _fetchCountries.default.fetchCountries(searchQuery).then(renderCountryMarkup).catch(onFetchError);
+  }
 }
 
 function renderCountryMarkup(countries) {
@@ -2869,7 +2873,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2179" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2048" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
